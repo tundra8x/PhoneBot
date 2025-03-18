@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PhoneBot - Two-Factor Authentication</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <a href="main.html" class="logo">PhoneBot</a>
+    <nav>
+      <ul>
+        <li><a href="main.html#features">Features</a></li>
+        <li><a href="main.html#pricing">Pricing</a></li>
+        <li><a href="auth.html" class="cta-button">Get Started</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="auth">
+    <div class="auth-container">
+      <div id="2fa-setup" class="auth-form">
+        <h2>Set Up Two-Factor Authentication</h2>
+        <p>Enhance your account security by setting up 2FA</p>
+        <div class="qr-container">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=otpauth://totp/PhoneBot:demo@example.com?secret=DEMO12345&issuer=PhoneBot" alt="2FA QR Code" class="qr-code">
+        </div>
+        <div class="backup-code">
+          <p>Can't scan the QR code? Use this code instead:</p>
+          <code class="secret-key">DEMO12345</code>
+        </div>
+        <form id="2fa-setup-form">
+          <div class="form-group">
+            <label for="verification-code">Enter Verification Code</label>
+            <input type="text" id="verification-code" maxlength="6" pattern="\d{6}" required>
+          </div>
+          <button type="submit" class="auth-button">Verify and Enable 2FA</button>
+        </form>
+      </div>
+
+      <div id="2fa-verify" class="auth-form active">
+        <h2>Two-Factor Authentication</h2>
+        <p>Enter the verification code from your authenticator app</p>
+        <form id="2fa-verify-form">
+          <div class="form-group">
+            <div class="code-inputs">
+              <input type="text" maxlength="1" pattern="\d" required>
+              <input type="text" maxlength="1" pattern="\d" required>
+              <input type="text" maxlength="1" pattern="\d" required>
+              <input type="text" maxlength="1" pattern="\d" required>
+              <input type="text" maxlength="1" pattern="\d" required>
+              <input type="text" maxlength="1" pattern="\d" required>
+            </div>
+          </div>
+          <button type="submit" class="auth-button">Verify</button>
+          <div class="form-footer centered">
+            <a href="#" class="text-link resend-code">Resend Code</a>
+          </div>
+        </form>
+      </div>
+
+      <div id="2fa-backup" class="auth-form">
+        <h2>Use Backup Code</h2>
+        <p>Enter one of your backup codes to access your account</p>
+        <form id="2fa-backup-form">
+          <div class="form-group">
+            <label for="backup-code">Backup Code</label>
+            <input type="text" id="backup-code" pattern="[A-Za-z0-9]{16}" required>
+          </div>
+          <button type="submit" class="auth-button">Verify</button>
+          <div class="form-footer centered">
+            <a href="#" class="text-link switch-to-2fa">Back to 2FA Code</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script src="2fa.js"></script>
+</body>
+</html>

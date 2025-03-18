@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PhoneBot - Login or Sign Up</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <a href="main.html" class="logo">PhoneBot</a>
+    <nav>
+      <ul>
+        <li><a href="main.html#features">Features</a></li>
+        <li><a href="main.html#pricing">Pricing</a></li>
+        <li><a href="auth.html" class="cta-button">Get Started</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="auth">
+    <div class="auth-container">
+      <div class="auth-tabs">
+        <button class="auth-tab active" data-tab="login">Log In</button>
+        <button class="auth-tab" data-tab="signup">Sign Up</button>
+      </div>
+
+      <div class="auth-form active" id="login-form">
+        <h2>Welcome Back</h2>
+        <p>Log in to manage your PhoneBot settings</p>
+        <form>
+          <div class="form-group">
+            <label for="login-email">Email</label>
+            <input type="email" id="login-email" required>
+          </div>
+          <div class="form-group">
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" required>
+          </div>
+          <div class="captcha-container">
+            <div class="captcha-wrapper">
+              <div class="captcha-image">
+                <canvas id="login-captcha" width="200" height="50"></canvas>
+              </div>
+              <div class="captcha-actions">
+                <button type="button" class="refresh-captcha" id="refresh-login-captcha">↻</button>
+              </div>
+            </div>
+            <input type="text" class="captcha-input" id="login-captcha-input" placeholder="Enter the text shown above" required>
+          </div>
+          <div class="form-group form-footer">
+            <label class="checkbox-label">
+              <input type="checkbox" id="remember-me">
+              <span>Remember me</span>
+            </label>
+            <a href="reset-password.html" class="forgot-password">Forgot password?</a>
+          </div>
+          <button type="submit" class="auth-button">Log In</button>
+        </form>
+      </div>
+
+      <div class="auth-form" id="signup-form">
+        <h2>Get Started with PhoneBot</h2>
+        <p>Create your account to start managing calls</p>
+        <form>
+          <div class="form-group">
+            <label for="signup-name">Full Name</label>
+            <input type="text" id="signup-name" required>
+          </div>
+          <div class="form-group">
+            <label for="signup-email">Email</label>
+            <input type="email" id="signup-email" required>
+          </div>
+          <div class="form-group">
+            <label for="signup-password">Password</label>
+            <input type="password" id="signup-password" required>
+          </div>
+          <div class="form-group">
+            <label for="signup-company">Company Name (Optional)</label>
+            <input type="text" id="signup-company">
+          </div>
+          <div class="captcha-container">
+            <div class="captcha-wrapper">
+              <div class="captcha-image">
+                <canvas id="signup-captcha" width="200" height="50"></canvas>
+              </div>
+              <div class="captcha-actions">
+                <button type="button" class="refresh-captcha" id="refresh-signup-captcha">↻</button>
+              </div>
+            </div>
+            <input type="text" class="captcha-input" id="signup-captcha-input" placeholder="Enter the text shown above" required>
+          </div>
+          <div class="form-group">
+            <label class="checkbox-label">
+              <input type="checkbox" id="terms" required>
+              <span>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
+            </label>
+          </div>
+          <button type="submit" class="auth-button">Create Account</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script src="auth.js"></script>
+</body>
+</html>
